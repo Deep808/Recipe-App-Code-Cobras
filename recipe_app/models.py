@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Recipe(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
@@ -8,3 +9,7 @@ class Recipe(models.Model):
 
     def __str__(self):
         return f"{self.title} - {self.createdAt}"
+    
+
+    
+  

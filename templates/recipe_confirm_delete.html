@@ -1,36 +1,132 @@
-{% extends 'base.html' %} {% block content %}
-<div class="card mb-3">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img
-        src="{{ recipe.image.url }}"
-        class="img-fluid rounded-start"
-        alt="{{ recipe.title }}"
-      />
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h2>{{ recipe.title }}</h2>
-        <h4 class="text-danger-50 text-danger">Are you sure to Delete?</h4>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <form action="{% url 'recipe_delete' recipe.id %}" method="POST">
-          {% csrf_token %}
-          <button
-            href="{% url 'recipe_delete' recipe.id %}"
-            class="btn btn-danger btn-lg rounded-15 mt-10"
+    <!-- Title of page -->
+    <title>{% block title %} Recipe App {% endblock %}</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    {% block extra_css %}{% endblock %}
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="bg-black text-white p-6">
+      <div>
+        <div
+          class="flex justify-between items-center mx-auto md:w-[70%] lg:w-[60%]"
+          id="navbarNav"
+        >
+          <a href="{% url 'recipe_list' %}"
+            ><img
+              class="w-12 h-12 object-contain rounded-full cursor-pointer"
+              src="../media/images/Tasty Fuze.png"
+              alt="logo"
+          /></a>
+          <ul
+            class="flex items-center text-right w-[30%] md:w-[45%] lg:w-[20%] xl:w-[25%] text-gray-400 justify-between font-bold cursor-pointer"
           >
-            Yes, Delete
-          </button>
-          <a href="{% url 'recipe_list' %}" class="btn btn-light rounded-1">
-            Cancel
-          </a>
-        </form>
-        <p class="mt-2">{{ recipe.description }}</p>
-        <p class="card-text">
-          <small class="text-muted">{{ recipe.created_at }}</small>
-        </p>
+            <li
+              class="hover:text-white hover:underline hover:underline-offset-4"
+            >
+              <a class="nav-link" href="{% url 'team' %}">Team</a>
+            </li>
+            <li class="hover:text-white h-8">
+              <a
+                class="md:flex md:items-center md:justify-between"
+                href="{% url 'recipe_create' %}"
+              >
+                <p
+                  class="hidden md:block lg:block xl:block mr-2 hover:underline hover:underline-offset-4"
+                >
+                  Post your Recipe!
+                </p>
+                <ion-icon
+                  class="w-8 h-8 cursor-pointer"
+                  name="add-circle-outline"
+                ></ion-icon
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="w-[90%] lg:w-[40%] mx-auto mt-6">
+      <h1 class="text-4xl mb-12 font-bold text-center">Delete recipe</h1>
+      <div class="col-md-4">
+        <img
+          src="{{ recipe.image.url }}"
+          class="rounded-md"
+          alt="{{ recipe.title }}"
+        />
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h2 class="font-bold text-[#393939] text-lg my-6">
+            {{ recipe.title }}
+          </h2>
+          <p class="text-[#8f8f9f]">{{ recipe.description }}</p>
+          <div class="flex space-x-2 mt-4">
+            <p>Added on:</p>
+            <p class="text-[#393939]">{{ recipe.createdAt }}</p>
+          </div>
+
+          <h4 class="text-red-500 underline mt-6">
+            Are you sure you want to delete?
+          </h4>
+          <form
+            class="my-4"
+            action="{% url 'recipe_delete' recipe.id %}"
+            method="POST"
+          >
+            {% csrf_token %}
+            <button
+              href="{% url 'recipe_delete' recipe.id %}"
+              class="bg-red-500 text-[#fefefe] hover:opacity-95 font-bold px-6 py-4 rounded-md mt-6"
+            >
+              Yes, Delete
+            </button>
+            <a href="{% url 'recipe_list' %}" class="ml-6 hover:text-gray-500">
+              Cancel
+            </a>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-{% endblock %}
+
+    <footer class="bg-black w-full h-full text-white pb-12">
+      <h1 class="text-center font-bold text-2xl pt-8 mt-8 mb-8">
+        Connect with Us
+      </h1>
+      <div
+        class="w-[30%] flex justify-between mx-auto text-center text-2xl md:w-[20%] lg:w-[10%]"
+      >
+        <ion-icon name="logo-facebook"></ion-icon>
+        <ion-icon name="logo-instagram"></ion-icon>
+        <ion-icon name="logo-twitter"></ion-icon>
+      </div>
+      <a class="text-center text-gray-400" href="mailto:tastyFuze@gmail.com"
+        ><p class="mt-6">tastyFuze@gmail.com</p></a
+      >
+    </footer>
+    <!-- Bootstrap 5 JavaScript -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    {% block extra_js %}{% endblock %}
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

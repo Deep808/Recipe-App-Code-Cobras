@@ -1,6 +1,7 @@
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .models import Recipe
+from django.shortcuts import render
 
 class RecipeList(ListView):
     model = Recipe
@@ -28,3 +29,6 @@ class RecipeDelete(DeleteView):
     model = Recipe
     template_name = 'recipe_confirm_delete.html'
     success_url = reverse_lazy('recipe_list')
+
+def team_members(request):
+     return render(request, 'team.html')

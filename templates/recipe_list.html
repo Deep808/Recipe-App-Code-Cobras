@@ -1,20 +1,27 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
-<h1>Recipes</h1>
-<div class="row row-cols-2 row-cols-lg-4 g-sm-2 g-lg-2 mb-4">
+<h1 class="text-4xl mt-12 font-bold text-center">Our Recipes</h1>
+<div
+  class="md:grid md:grid-cols-2 md:w-[80%] md:mx-auto lg:grid lg:grid-cols-3 lg:w-[80%] xl:w-[65%] lg:mx-auto"
+>
   {% for recipe in recipes %}
-  <div class="col">
-    <div class="card" style="width: 19em">
+  <div class="w-[90%] mx-auto lg:w-full">
+    <div class="w-full rounded-md mx-auto mt-8 md:w-[100%] lg:w-[90%]">
       <img
         src="{{ recipe.image.url }}"
-        class="object-fit-cover"
+        class="rounded-md w-[100vw] h-[40vh] object-cover"
         alt="{{ recipe.title }}"
       />
-      <div class="card-body">
-        <h5 class="card-title">{{ recipe.title }}</h5>
-        <p class="card-text">{{ recipe.description|truncatechars:40 }}</p>
-        <a href="{% url 'recipe_detail' recipe.id %}" class="btn btn-dark"
-          >View Recipe</a
-        >
+      <div class="p-6 flex justify-between">
+        <div>
+          <h5 class="text-lg font-bold">{{ recipe.title }}</h5>
+          <p class="card-text">{{ recipe.description|truncatechars:40 }}</p>
+        </div>
+        <a href="{% url 'recipe_detail' recipe.id %}" class="btn btn-dark">
+          <ion-icon
+            class="w-8 h-8 cursor-pointer"
+            name="arrow-forward-circle-outline"
+          ></ion-icon
+        ></a>
       </div>
     </div>
   </div>

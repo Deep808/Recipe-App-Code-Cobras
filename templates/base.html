@@ -7,51 +7,123 @@
     <!-- Title of page -->
     <title>{% block title %} Recipe App {% endblock %}</title>
 
-    <!-- Bootstrap 5 CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
-
+    <script src="https://cdn.tailwindcss.com"></script>
     {% block extra_css %}{% endblock %}
   </head>
   <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container">
-        <a class="navbar-brand" href="{% url 'recipe_list' %}">Recipe App</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
+    <nav class="bg-black text-white p-6">
+      <div>
+        <div
+          class="flex justify-between items-center mx-auto md:w-[70%] lg:w-[60%]"
+          id="navbarNav"
         >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'recipe_list' %}">Recipes</a>
+          <a href="{% url 'recipe_list' %}"
+            ><img
+              class="w-12 h-12 object-contain rounded-full cursor-pointer"
+              src="../media/images/Tasty Fuze.png"
+              alt="logo"
+          /></a>
+          <ul
+            class="flex items-center text-right w-[30%] md:w-[45%] lg:w-[20%] xl:w-[25%] text-gray-400 justify-between font-bold cursor-pointer"
+          >
+            <li
+              class="hover:text-white hover:underline hover:underline-offset-4"
+            >
+              <a href="{% url 'team' %}">Team</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'recipe_create' %}"
-                >New Recipe</a
+            <li class="hover:text-white h-8">
+              <a
+                class="md:flex md:items-center md:justify-between"
+                href="{% url 'recipe_create' %}"
               >
+                <p
+                  class="hidden md:block lg:block xl:block mr-2 hover:underline hover:underline-offset-4"
+                >
+                  Post your Recipe!
+                </p>
+                <ion-icon
+                  class="w-8 h-8 cursor-pointer"
+                  name="add-circle-outline"
+                ></ion-icon
+              ></a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
 
-    <div class="container mt-4">
+    <div class="w-full bg-black relative">
+      <img
+        class="w-auto mx-auto object-cover"
+        src="https://images.unsplash.com/photo-1556761223-4c4282c73f77?q=80&w=465&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt=""
+      />
+      <p
+        class="absolute drop-shadow-md z-10 w-[90%] text-[2.5em] font-bold text-center m-auto top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white md:w-[60%] md:text-[3.5em]"
+      >
+        Taste the Fusion, Feel the Flavor!
+      </p>
+      <p
+        class="absolute drop-shadow-md z-10 w-[80%] text-[2em] text-center m-auto top-[65%] max-[649px]:top-[70%] md:top-[70%] md:w-[70%] left-1/2 -translate-x-1/2 -translate-y-1/2 text-white md:w-[60%] md:text-[2em]"
+      >
+        Share your recipes around the world.
+      </p>
+    </div>
+
+    <div class="bg-[#fefbee] w-full">
       <!-- content block of page -->
       {% block content %}{% endblock %}
     </div>
+
+    <div
+      class="relative w-[90%] mx-auto my-12 text-center md:w-[70%] lg:w-[50%] xl:w-[40%]"
+    >
+      <img
+        class="w-[70%] h-[70%] object-contain m-auto left-0 right-0 top-0 bottom-0 absolute -z-10 rounded-full opacity-10"
+        src="../media/images/Tasty Fuze.png"
+        alt="logo"
+      />
+      <h1 class="text-center font-bold text-4xl mt-12 mb-8">About Us</h1>
+      <p>
+        Welcome to Tasty Fuze, where culinary creativity meets flavor sensation!
+        At Tasty Fuze, we believe in the power of food to bring joy, excitement,
+        and a sense of connection. Our mission is to inspire and delight your
+        taste buds with innovative recipes that fuse together diverse flavors
+        from around the world. Best of all, anyone can share their favorite
+        recipes without the need for an account. Whether you're a seasoned chef
+        or a passionate home cook, we welcome you to join our community and
+        contribute to our collective culinary journey. Let's explore the world
+        of flavors together!
+      </p>
+      <br />
+      <p>
+        <span class="font-bold text-xl">Our Philosophy </span> <br />
+        <br />
+        Tasty Fuze is more than just a recipe website; it's a culinary journey
+        that celebrates the art of cooking and the joy of sharing delicious
+        meals with loved ones. We believe in the importance of exploring new
+        flavors, experimenting with ingredients, and embracing the diversity of
+        global cuisines. Our recipes are crafted with passion, creativity, and a
+        deep appreciation for the rich tapestry of culinary traditions.
+      </p>
+    </div>
+
+    <footer class="bg-black w-full h-full text-white pb-12">
+      <h1 class="text-center font-bold text-2xl pt-8 mt-8 mb-8">
+        Connect with Us
+      </h1>
+      <div
+        class="w-[30%] flex justify-between mx-auto text-center text-2xl md:w-[20%] lg:w-[10%]"
+      >
+        <ion-icon name="logo-facebook"></ion-icon>
+        <ion-icon name="logo-instagram"></ion-icon>
+        <ion-icon name="logo-twitter"></ion-icon>
+      </div>
+      <a class="text-center text-gray-400" href="mailto:tastyFuze@gmail.com"
+        ><p class="mt-6">tastyFuze@gmail.com</p></a
+      >
+    </footer>
 
     <!-- Bootstrap 5 JavaScript -->
     <script
@@ -61,5 +133,14 @@
     ></script>
 
     {% block extra_js %}{% endblock %}
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
   </body>
 </html>

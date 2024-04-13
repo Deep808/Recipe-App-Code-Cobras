@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Team!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="bg-black text-white p-6">
+      <div>
+        <div
+          class="flex justify-between items-center mx-auto md:w-[70%] lg:w-[60%]"
+          id="navbarNav"
+        >
+          <a href="{% url 'recipe_list' %}"
+            ><img
+              class="w-12 h-12 object-contain rounded-full cursor-pointer"
+              src="../media/images/Tasty Fuze.png"
+              alt="logo"
+          /></a>
+          <ul
+            class="flex items-center text-right w-[30%] md:w-[45%] lg:w-[20%] xl:w-[25%] text-gray-400 justify-between font-bold cursor-pointer"
+          >
+            <li
+              class="hover:text-white hover:underline hover:underline-offset-4"
+            >
+              <a href="{% url 'team' %}">Team</a>
+            </li>
+            <li class="hover:text-white h-8">
+              <a
+                class="md:flex md:items-center md:justify-between"
+                href="{% url 'recipe_create' %}"
+              >
+                <p
+                  class="hidden md:block lg:block xl:block mr-2 hover:underline hover:underline-offset-4"
+                >
+                  Post your Recipe!
+                </p>
+                <ion-icon
+                  class="w-8 h-8 cursor-pointer"
+                  name="add-circle-outline"
+                ></ion-icon
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <h1 class="text-center font-bold text-4xl mt-12 mb-8">Meet the Team!</h1>
+    <div
+      class="w-[80%] mx-auto mb-6 mt-12 md:w-[50%] lg:w-[50%] lg:flex lg:justify-between"
+    >
+      <img
+        class="w-[100%] h-[60vh] object-cover rounded-tl-[25%] rounded-br-[25%]"
+        src="../media/images/deep.jpeg"
+        alt="deep-prajapati"
+      />
+
+      <div class="w-[100%] mx-auto lg:ml-6">
+        <p class="mt-4 font-bold text-lg underline text-[#393939]">
+          Deep Prajapati
+        </p>
+        <p>Founder</p>
+        <p class="mt-4 text-[#8f8f9f]">
+          Our founder is a seasoned chef and entrepreneur with a deep love for
+          exploring diverse flavors and sharing the joy of cooking with others.
+        </p>
+      </div>
+    </div>
+    <div
+      class="w-[80%] mx-auto mb-6 mt-12 md:w-[50%] lg:w-[50%] lg:flex lg:justify-between"
+    >
+      <img
+        class="w-[100%] h-[60vh] filter grayscale object-cover rounded-tl-[25%] rounded-br-[25%]"
+        src="../media/images/jainam.jpeg"
+        alt="jainam-patluwala"
+      />
+
+      <div class="w-[100%] mx-auto lg:ml-6">
+        <p class="mt-4 font-bold text-lg underline text-[#393939]">
+          Jainam Patluwala
+        </p>
+        <p>Co-Founder</p>
+        <p class="mt-4 text-[#8f8f9f]">
+          Jainam brings a wealth of expertise in technology and business
+          development, united by a common goal to create a platform that
+          celebrates the creativity and diversity of home cooking.
+        </p>
+      </div>
+    </div>
+    <div
+      class="w-[80%] mx-auto mb-6 mt-12 md:w-[50%] lg:w-[50%] lg:flex lg:justify-between"
+    >
+      <img
+        class="w-[50%] h-[60vh] filter grayscale object-cover rounded-tl-[25%] rounded-br-[25%]"
+        src="../media/images/raju.png"
+        alt="raju-khatri"
+      />
+
+      <div class="w-[100%] mx-auto lg:ml-6">
+        <p class="mt-4 font-bold text-lg underline text-[#393939]">
+          Raju Khatri
+        </p>
+        <p>Co-Founder</p>
+        <p class="mt-4 text-[#8f8f9f]">
+          Raju lends their business acumen and strategic vision to drive the
+          growth and expansion of Tasty Fuze into new culinary frontiers.
+        </p>
+      </div>
+    </div>
+    <div
+      class="w-[80%] mx-auto mb-28 mt-12 md:w-[50%] lg:w-[50%] lg:flex lg:justify-between"
+    >
+      <img
+        class="w-[50%] h-[60vh] filter grayscale object-cover rounded-tl-[25%] rounded-br-[25%]"
+        src="../media/images/david.jpeg"
+        alt="david-gc"
+      />
+
+      <div class="w-[100%] mx-auto lg:ml-6">
+        <p class="mt-4 font-bold text-lg underline text-[#393939]">David GC</p>
+        <p>Co-Founder</p>
+        <p class="mt-4 text-[#8f8f9f]">
+          Alongside David brings expertise in user experience design, ensuring
+          that Tasty Fuze provides an intuitive and enjoyable cooking experience
+          for all users.
+        </p>
+      </div>
+    </div>
+
+    <footer class="bg-black w-full h-full text-white pb-12">
+      <h1 class="text-center font-bold text-2xl pt-8 mt-8 mb-8">
+        Connect with Us
+      </h1>
+      <div
+        class="w-[30%] flex justify-between mx-auto text-center text-2xl md:w-[20%] lg:w-[10%]"
+      >
+        <ion-icon name="logo-facebook"></ion-icon>
+        <ion-icon name="logo-instagram"></ion-icon>
+        <ion-icon name="logo-twitter"></ion-icon>
+      </div>
+      <a class="text-center text-gray-400" href="mailto:tastyFuze@gmail.com"
+        ><p class="mt-6">tastyFuze@gmail.com</p></a
+      >
+    </footer>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>
